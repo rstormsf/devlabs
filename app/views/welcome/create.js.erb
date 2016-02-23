@@ -8,5 +8,7 @@ console.log(messages);
 
 <% end %>
 <% if @user.valid? && !@user.new_record?%>
+  $('#send').prop('disabled', true);
+  $('#send').val('Your message was sent');
   sweetAlert("Thank you!", "We will reply to you shortly", "success");
 <% end %>
