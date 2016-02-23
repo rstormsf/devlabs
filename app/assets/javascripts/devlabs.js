@@ -41,3 +41,8 @@ $('.portfolio-link').on('click', function(e){
     var win = window.open(url, '_blank');
     win.focus();
 });
+
+$('#send').on('click', function(e){
+    $('#send').prop('disabled', true);
+    $('#send').trigger('submit');
+});

@@ -1,6 +1,6 @@
 <% if @user.errors.any? %>
+$('#send').prop('disabled', false);
 var messages = $.parseHTML("<%= @user.errors.full_messages.join("<br />") %>")[0].data;
-console.log(messages);
     sweetAlert({title: " <%= pluralize(@user.errors.count, 'error') %> occured:", 
                 text: messages, 
                 html: true,
