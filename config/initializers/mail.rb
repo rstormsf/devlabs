@@ -1,3 +1,5 @@
+require 'sendgrid-rails'
+
 ActionMailer::Base.register_interceptor(SendGrid::MailInterceptor)
 
 ActionMailer::Base.smtp_settings = {
