@@ -1,23 +1,4 @@
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
-
-<%= form_for @user, url: {action: "create"} do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-        <%= javascript_tag do %>
-        var messages = $.parseHTML("<%= @user.errors.full_messages.join("<br />") %>")[0].data;
-        console.log(messages);
-            sweetAlert({title: " <%= pluralize(@user.errors.count, 'error') %> occured:", 
-                        text: messages, 
-                        html: true,
-                        type: "error"});
-        <% end %>
-    </div>
-  <% end %>
-<% if @user.valid? && !@user.new_record?%>
-    <%= javascript_tag do %>
-        sweetAlert("Thank you!", "We will reply to you shortly", "success");
-    <% end %>
-<% end %>
+<%= form_for @user, url: {action: "create"}, remote: true do |f| %>
     <div class="row control-group">
         <div class="form-group col-xs-12 floating-label-form-group controls">
             <label>Name</label>

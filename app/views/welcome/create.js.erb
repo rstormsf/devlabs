@@ -1,0 +1,12 @@
+<% if @user.errors.any? %>
+var messages = $.parseHTML("<%= @user.errors.full_messages.join("<br />") %>")[0].data;
+console.log(messages);
+    sweetAlert({title: " <%= pluralize(@user.errors.count, 'error') %> occured:", 
+                text: messages, 
+                html: true,
+                type: "error"});
+
+<% end %>
+<% if @user.valid? && !@user.new_record?%>
+  sweetAlert("Thank you!", "We will reply to you shortly", "success");
+<% end %>

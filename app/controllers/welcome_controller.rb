@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     @user.save
     respond_to do |format|
       format.html { render :index, anchor: "contact"}
+      format.js {}
     end
   end
 
