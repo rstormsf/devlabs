@@ -1,8 +1,15 @@
+ 
+
 <%= form_for @user, url: {action: "create"} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
         <%= javascript_tag do %>
-            sweetAlert(" <%= pluralize(@user.errors.count, 'error') %> occured:", " <%= @user.errors.full_messages.join(' ') %>", "error");
+        var messages = $.parseHTML("<%= @user.errors.full_messages.join("<br />") %>")[0].data;
+        console.log(messages);
+            sweetAlert({title: " <%= pluralize(@user.errors.count, 'error') %> occured:", 
+                        text: messages, 
+                        html: true,
+                        type: "error"});
         <% end %>
     </div>
   <% end %>

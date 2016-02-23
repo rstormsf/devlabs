@@ -11,14 +11,6 @@ class WelcomeController < ApplicationController
     end
   end
 
-  def contact
-    @lead = User.new(params[:lead])
-    respond_to do |format|
-      format.ajax { }
-    end
-    ContactMailer.send_lead(@lead).deliver_later
-  end
-
   private
 
   def user_params
