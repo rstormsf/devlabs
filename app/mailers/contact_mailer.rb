@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "noreply@devlabs.ml"
+  default from: "noreply@devlabs.ca"
 
   def send_lead(user_id)
     category 'SendGridRocks'
