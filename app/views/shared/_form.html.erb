@@ -1,4 +1,4 @@
- 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> 
 
 <%= form_for @user, url: {action: "create"} do |f| %>
   <% if @user.errors.any? %>
