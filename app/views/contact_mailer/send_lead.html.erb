@@ -4,9 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>You have new lead <%= @lead.name %> <%= @lead.email%></h1>
+    <h1>You have new lead <%= @lead.email%></h1>
     <p>
-      <%= @lead.message %>
+      <%= @lead.first_name %>
+      <%= @lead.last_name %>
+      <%= @lead.state %>
+      <%= @lead.loan_amount %>
+      <%= @lead.phone_number %>
     </p>
   </body>
 </html>

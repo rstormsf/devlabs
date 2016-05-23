@@ -1,31 +1,41 @@
 <%= form_for @user, url: {action: "create"}, remote: true do |f| %>
     <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Name</label>
-            <%= f.text_field :name, placeholder: 'Name', class: 'form-control', data: {validation_required_message: "Please enter your name."} %>
-            <p class="help-block text-danger"></p>
+        <div class="form-group col-xs-11 floating-label-form-group controls">
+            <label>First Name</label>
+            <%= f.text_field :first_name, class: 'form-control', data: {validation_required_message: "Please enter your first name."} %>
+        </div>
+        <div class="form-group col-xs-11 col-xs-offset-2 floating-label-form-group controls">
+            <label>Last Name</label>
+            <%= f.text_field :last_name, class: 'form-control', data: {validation_required_message: "Please enter your name."} %>
         </div>
     </div>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Email Address</label>
-            <%= f.text_field :email, class: 'form-control', placeholder: 'Email Address', id: 'email', data: {validation_required_message: "Please enter your email address."} %>
-            <p class="help-block text-danger"></p>
-        </div>
-    </div>
-    <div class="row control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-            <label>Message</label>
-            <%= f.text_area :message, class: 'form-control', placeholder: 'Message', id: 'message', data: {validation_required_message: "Please enter your message."}, 'rows' => 5 %>
-            <p class="help-block text-danger"></p>
-        </div>
-    </div>
-      <br>
-    <div id="success"></div>
 
-    <div class="row">
-        <div class="form-group col-xs-12">
-            <%= f.submit "Send", class: 'btn btn-success btn-lg', id: 'send' %>
+    <div class="row control-group">
+        <div class="form-group col-xs-24 floating-label-form-group controls">
+            <label>Email Address</label>
+            <%= f.text_field :email, class: 'form-control', id: 'email', data: {validation_required_message: "Please enter your email address."} %>
         </div>
+    </div>
+    <div class="row control-group">
+        <div class="form-group col-xs-24 floating-label-form-group controls">
+            <label>Phone Number</label>
+            <%= f.text_field :phone_number, class: 'form-control', id: 'email', data: {validation_required_message: "Please enter your email address."} %>
+        </div>
+    </div>
+    <div class="row control-group">
+      <div class="form-group col-xs-24 select">
+        <%= f.select(:loan_amount, PriceRange::LOAN_AMOUNTS, {header: "Select a condiment"}, class: 'selectpicker col-xs-24  show-tick', id: 'loan_amount', data: {title:'Loan Amount', header: 'Loan Amount', style:'floating-label-form-group'} ) %>
+      </div>
+    </div>
+    <div class="row control-group">
+      <div class="form-group col-xs-24 select">
+        <%= f.select(:state, us_states, {header: "Select your state"}, class: 'selectpicker col-xs-24  show-tick', id: 'state', data: {title:'Select Your State', live_search: "true", size: 10, dropup_auto: 'false', style:'floating-label-form-group'} ) %>
+      </div>
+    </div>
+    <div id="success"></div>
+    <div class="row">
+      <div class="form-group col-xs-24 select">
+          <%= f.submit "Get help!", class: 'btn btn-success btn-lg center-block', id: 'send' %>
+      </div>
     </div>
 <% end %>
